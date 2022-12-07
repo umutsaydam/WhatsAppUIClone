@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/actionMenuCamera"
+        android:icon="@drawable/ic_camera"
+        android:title="Camera"
+        app:showAsAction="ifRoom"/>
+    <item
+        android:id="@+id/actionMenuSearch"
+        android:icon="@drawable/ic_search"
+        android:title="Search"
+        app:showAsAction="ifRoom"/>
+    <item
+        android:id="@+id/actionMenuNewGroup"
+        android:title="New group"
+        app:showAsAction="never"/>
+    <item
+        android:id="@+id/actionMenuNewBroadcast"
+        android:title="New broadcast"
+        app:showAsAction="never"/>
+    <item
+        android:id="@+id/actionMenuLinkedDevices"
+        android:title="Linked Devices"
+        app:showAsAction="never"/>
+    <item
+        android:id="@+id/actionMenuStarredMessages"
+        android:title="Starred messages"
+        app:showAsAction="never"/>
+    <item
+        android:id="@+id/actionMenuSettings"
+        android:title="Settings"
+        app:showAsAction="never"/>
+</menu>
