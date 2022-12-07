@@ -53,6 +53,7 @@ public class MainActivity extends AppCompatActivity {
         adapter.setFragments(fragments);
         adapter.setMenuNames(menuNames);
         viewPager.setAdapter(adapter);
+        viewPager.setCurrentItem(1);
 
         new TabLayoutMediator(tabLayout, viewPager, new TabLayoutMediator.TabConfigurationStrategy() {
             @Override

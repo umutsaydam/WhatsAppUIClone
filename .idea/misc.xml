@@ -5,6 +5,7 @@
       <map>
         <entry key="..\:/Users/Umut/AndroidStudioProjects/WhatsAppCloneUI/app/src/main/res/drawable/count_of_messages.xml" value="0.1895" />
         <entry key="..\:/Users/Umut/AndroidStudioProjects/WhatsAppCloneUI/app/src/main/res/drawable/ic_community.xml" value="0.124" />
+        <entry key="..\:/Users/Umut/AndroidStudioProjects/WhatsAppCloneUI/app/src/main/res/drawable/ic_message.xml" value="0.2595" />
         <entry key="..\:/Users/Umut/AndroidStudioProjects/WhatsAppCloneUI/app/src/main/res/drawable/profile_photo_shape.xml" value="0.1895" />
         <entry key="..\:/Users/Umut/AndroidStudioProjects/WhatsAppCloneUI/app/src/main/res/layout/activity_main.xml" value="0.264" />
         <entry key="..\:/Users/Umut/AndroidStudioProjects/WhatsAppCloneUI/app/src/main/res/layout/chat_row.xml" value="0.4" />
@@ -20,5 +21,12 @@
   </component>
   <component name="ProjectType">
     <option name="id" value="Android" />
+  </component>
+  <component name="VisualizationToolProject">
+    <option name="state">
+      <ProjectState>
+        <option name="scale" value="0.25416666666666665" />
+      </ProjectState>
+    </option>
   </component>
 </project>

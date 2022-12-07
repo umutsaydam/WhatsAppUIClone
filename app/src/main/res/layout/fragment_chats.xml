@@ -15,4 +15,15 @@
         android:padding="2dp"
         />
 
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/chatFloatingBtn"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:src="@drawable/ic_message"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_margin="28dp"
+        android:background="@color/toolbar_bg"
+        android:contentDescription="@string/app_name" />
+
 </RelativeLayout>
