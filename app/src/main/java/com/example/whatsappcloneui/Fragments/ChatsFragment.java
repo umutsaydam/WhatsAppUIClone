@@ -56,7 +56,10 @@ public class ChatsFragment extends Fragment {
         recyclerView.setAdapter(new MessagesAdapter(messages, getContext()));
 
         // floatingActionBtn will show persons
-        // floatingActionBtn.setOnClickListener(view1 -> );
+         floatingActionBtn.setOnClickListener(view1 -> {
+             getActivity().getSupportFragmentManager().beginTransaction()
+                     .replace(R.id.test, new ContactsFragment()).addToBackStack(null).commit();
+         });
 
        return view;
     }

@@ -1,7 +1,5 @@
 package com.example.whatsappcloneui.Models;
 
-import android.widget.ImageView;
-
 public class Message {
     int profilePhoto;
     String sender;
