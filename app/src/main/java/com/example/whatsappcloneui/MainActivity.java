@@ -9,15 +9,14 @@ import androidx.viewpager2.widget.ViewPager2;
 
 import android.os.Bundle;
 import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.Toast;
 
 import com.example.whatsappcloneui.Adapters.ViewPagerAdapter;
-import com.example.whatsappcloneui.Fragments.Calls;
-import com.example.whatsappcloneui.Fragments.Chats;
-import com.example.whatsappcloneui.Fragments.Community;
-import com.example.whatsappcloneui.Fragments.Status;
+import com.example.whatsappcloneui.Fragments.CallsFragment;
+import com.example.whatsappcloneui.Fragments.ChatsFragment;
+import com.example.whatsappcloneui.Fragments.CommunityFragment;
+import com.example.whatsappcloneui.Fragments.StatusFragment;
 import com.google.android.material.tabs.TabLayout;
 import com.google.android.material.tabs.TabLayoutMediator;
 
@@ -45,10 +44,10 @@ public class MainActivity extends AppCompatActivity {
         menuNames.add("Status");
         menuNames.add("Calls");
         ArrayList<Fragment> fragments = new ArrayList<>();
-        fragments.add(new Community());
-        fragments.add(new Chats());
-        fragments.add(new Status());
-        fragments.add(new Calls());
+        fragments.add(new CommunityFragment());
+        fragments.add(new ChatsFragment());
+        fragments.add(new StatusFragment());
+        fragments.add(new CallsFragment());
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager(), getLifecycle());
         adapter.setFragments(fragments);
         adapter.setMenuNames(menuNames);
