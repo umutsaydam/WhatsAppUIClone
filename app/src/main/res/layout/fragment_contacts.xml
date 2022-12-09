@@ -6,7 +6,8 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".Fragments.ContactsFragment"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="@color/white">
 
     <androidx.appcompat.widget.Toolbar
         android:layout_width="match_parent"
@@ -16,24 +17,32 @@
         app:title="Select contact"
         app:titleTextColor="@color/white"
         android:theme="@style/actionBar"/>
+    <!--
+       <androidx.recyclerview.widget.RecyclerView
+           android:id="@+id/contactsOptionsRecycler"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:background="@color/white"
+           app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
 
-   <androidx.recyclerview.widget.RecyclerView
-       android:id="@+id/contactsOptionsRecycler"
-       android:layout_width="match_parent"
-       android:layout_height="wrap_content"
-       app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Lorem ip
+            android:layout_margin="12dp"/>
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Lorem ipsum"
-        android:layout_margin="12dp"/>
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/contactsPersonsRecycler"
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/contactsPersonsRecycler"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            tools:listitem="@layout/contacts_cardview"
+            android:background="@color/white"/>
+        -->
+    <ListView
+        android:id="@+id/listView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        tools:listitem="@layout/contacts_cardview" />
+        tools:listitem="@layout/contacts_cardview"/>
 
 </LinearLayout>

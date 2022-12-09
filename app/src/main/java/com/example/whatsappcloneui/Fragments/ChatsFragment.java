@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.whatsappcloneui.Adapters.MessagesAdapter;
+import com.example.whatsappcloneui.Models.ContactOptionsModel;
 import com.example.whatsappcloneui.Models.Message;
 import com.example.whatsappcloneui.R;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -35,6 +36,7 @@ public class ChatsFragment extends Fragment {
         recyclerView = view.findViewById(R.id.recyclerView);
         floatingActionBtn = view.findViewById(R.id.chatFloatingBtn);
 
+
         ArrayList<Message> messages = new ArrayList<>();
         messages.add(new Message(R.drawable.profile_photo, "Umut Saydam", "Hi!", "Today", 1));
         messages.add(new Message(R.drawable.profile_photo, "Emre Yılmaz", "Hi!", "Today", 1));
@@ -54,7 +56,6 @@ public class ChatsFragment extends Fragment {
         messages.add(new Message(R.drawable.profile_photo, "Emre Yılmaz", "Hi!", "Today", 1));
         messages.add(new Message(R.drawable.profile_photo, "Mehmet Çelik", "I forget to send it ...", "Yestarday", 1));
         recyclerView.setAdapter(new MessagesAdapter(messages, getContext()));
-
         // floatingActionBtn will show persons
          floatingActionBtn.setOnClickListener(view1 -> {
              getActivity().getSupportFragmentManager().beginTransaction()

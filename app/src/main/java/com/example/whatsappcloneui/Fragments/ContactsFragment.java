@@ -18,17 +18,22 @@ import android.provider.ContactsContract;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ListAdapter;
+import android.widget.ListView;
 import android.widget.Toast;
 
+import com.example.whatsappcloneui.Adapters.ContactOptionsAdapter;
 import com.example.whatsappcloneui.Adapters.ContactsAdapter;
 import com.example.whatsappcloneui.Models.ContactModel;
+import com.example.whatsappcloneui.Models.ContactOptionsModel;
 import com.example.whatsappcloneui.R;
 
 import java.util.ArrayList;
 
 public class ContactsFragment extends Fragment {
-    private RecyclerView contactsPersonsRecycler, contactsOptionsRecycler;
+    //private RecyclerView contactsPersonsRecycler, contactsOptionsRecycler;
     private ArrayList<ContactModel> contactModels = new ArrayList<>();
+    private ListView listView;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,10 +43,19 @@ public class ContactsFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_contacts, container, false);
-        contactsPersonsRecycler = view.findViewById(R.id.contactsPersonsRecycler);
-        contactsOptionsRecycler = view.findViewById(R.id.contactsOptionsRecycler);
-        ActivityCompat.requestPermissions(getActivity(), new String[]{Manifest.permission.READ_CONTACTS}, 100);
-      //  checkPermission();
+       // contactsPersonsRecycler = view.findViewById(R.id.contactsPersonsRecycler);
+      //  contactsOptionsRecycler = view.findViewById(R.id.contactsOptionsRecycler);
+        listView = view.findViewById(R.id.listView);
+        ArrayList<ContactOptionsModel> contactOptionsModels = new ArrayList<>();
+        contactOptionsModels.add(new ContactOptionsModel("New group"));
+        contactOptionsModels.add(new ContactOptionsModel("New contact"));
+        contactOptionsModels.add(new ContactOptionsModel("New community"));
+
+
+       // contactsOptionsRecycler.setAdapter(new ContactOptionsAdapter(contactOptionsModels));
+        listView.setAdapter((ListAdapter) new ContactOptionsAdapter(contactOptionsModels));
+
+        checkPermission();
         return  view;
     }
 
@@ -77,18 +91,8 @@ public class ContactsFragment extends Fragment {
             cursor.close();
 
             ContactsAdapter adapter = new ContactsAdapter(contactModels);
-            contactsPersonsRecycler.setAdapter(adapter);
-
+           // contactsPersonsRecycler.setAdapter(adapter);
+            listView.setAdapter((ListAdapter) adapter);
         }
     }
-
-    ActivityResultLauncher<String> requestPermisionLauncher =
-            registerForActivityResult(new ActivityResultContracts.RequestPermission(), isGranted ->{
-                if (isGranted){
-                    getContactList();
-                }else{
-                    Toast.makeText(getContext(), "Hata 89 line", Toast.LENGTH_SHORT).show();
-                    checkPermission();
-                }
-            });
 }
