@@ -10,6 +10,7 @@ import androidx.viewpager2.widget.ViewPager2;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Toast;
 
 import com.example.whatsappcloneui.Adapters.ViewPagerAdapter;
@@ -17,6 +18,7 @@ import com.example.whatsappcloneui.Fragments.CallsFragment;
 import com.example.whatsappcloneui.Fragments.ChatsFragment;
 import com.example.whatsappcloneui.Fragments.CommunityFragment;
 import com.example.whatsappcloneui.Fragments.StatusFragment;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.tabs.TabLayout;
 import com.google.android.material.tabs.TabLayoutMediator;
 
@@ -27,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
     private Toolbar toolbar;
     private ViewPager2 viewPager;
     private TabLayout tabLayout;
+    private FloatingActionButton mainFloatingBtn, cameraFloatingBtn;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,7 +40,15 @@ public class MainActivity extends AppCompatActivity {
         toolbar.inflateMenu(R.menu.toolbar_menu);
         tabLayout = findViewById(R.id.tabLayout);
         viewPager = findViewById(R.id.viewPager);
+        mainFloatingBtn = findViewById(R.id.mainFloatingBtn);
+        cameraFloatingBtn = findViewById(R.id.cameraFloatingBtn);
 
+        setViewPagerAndTabLayout();
+        reduceDrag();
+
+    }
+
+    public void setViewPagerAndTabLayout(){
         ArrayList<String> menuNames = new ArrayList<>();
         menuNames.add("Community");
         menuNames.add("Chats");
@@ -59,12 +70,30 @@ public class MainActivity extends AppCompatActivity {
             public void onConfigureTab(@NonNull TabLayout.Tab tab, int position) {
                 if (position == 0) tab.setIcon(R.drawable.ic_community);
                 if(position != 0) tab.setText(adapter.getFragmentName(position));
+                switch (position){
+                    case 0:
+                        tab.setIcon(R.drawable.ic_community);
+                        mainFloatingBtn.setVisibility(View.GONE);
+                        cameraFloatingBtn.setVisibility(View.GONE);
+                        break;
+                    case 1:
+                        mainFloatingBtn.setVisibility(View.VISIBLE);
+                        cameraFloatingBtn.setVisibility(View.GONE);
+                        break;
+                    case 2:
+                        mainFloatingBtn.setVisibility(View.VISIBLE);
+                        cameraFloatingBtn.setVisibility(View.VISIBLE);
+                        break;
+                    case 3:
+                        mainFloatingBtn.setVisibility(View.VISIBLE);
+                        cameraFloatingBtn.setVisibility(View.GONE);
+                        System.out.println("");
+                        break;
+
+                }
             }
         }).attach();
-        reduceDrag();
-
     }
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.toolbar_menu, menu);

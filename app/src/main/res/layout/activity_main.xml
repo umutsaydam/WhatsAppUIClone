@@ -35,4 +35,28 @@
         android:layout_height="match_parent"
         android:layout_below="@+id/tabLayout"/>
 
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/cameraFloatingBtn"
+        android:layout_width="55dp"
+        android:layout_height="55dp"
+        android:src="@drawable/ic_message"
+        android:layout_alignParentEnd="true"
+        android:layout_marginRight="25dp"
+        android:background="@color/toolbar_bg"
+        android:contentDescription="@string/app_name"
+        android:layout_above="@+id/mainFloatingBtn"
+        android:visibility="gone"/>
+
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/mainFloatingBtn"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:src="@drawable/ic_message"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_margin="25dp"
+        android:background="@color/toolbar_bg"
+        android:contentDescription="@string/app_name"  />
+
 </RelativeLayout>
