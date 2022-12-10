@@ -7,8 +7,7 @@ import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
 
-import androidx.activity.result.ActivityResultLauncher;
-import androidx.activity.result.contract.ActivityResultContracts;
+
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
@@ -18,9 +17,6 @@ import android.provider.ContactsContract;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ListAdapter;
-import android.widget.ListView;
-import android.widget.Toast;
 
 import com.example.whatsappcloneui.Adapters.ContactOptionsAdapter;
 import com.example.whatsappcloneui.Adapters.ContactsAdapter;
@@ -31,9 +27,8 @@ import com.example.whatsappcloneui.R;
 import java.util.ArrayList;
 
 public class ContactsFragment extends Fragment {
-    //private RecyclerView contactsPersonsRecycler, contactsOptionsRecycler;
+    private RecyclerView contactsPersonsRecycler, contactsOptionsRecycler;
     private ArrayList<ContactModel> contactModels = new ArrayList<>();
-    private ListView listView;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,17 +38,14 @@ public class ContactsFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_contacts, container, false);
-       // contactsPersonsRecycler = view.findViewById(R.id.contactsPersonsRecycler);
-      //  contactsOptionsRecycler = view.findViewById(R.id.contactsOptionsRecycler);
-        listView = view.findViewById(R.id.listView);
+        contactsPersonsRecycler = view.findViewById(R.id.contactsPersonsRecycler);
+        contactsOptionsRecycler = view.findViewById(R.id.contactsOptionsRecycler);
         ArrayList<ContactOptionsModel> contactOptionsModels = new ArrayList<>();
         contactOptionsModels.add(new ContactOptionsModel("New group"));
         contactOptionsModels.add(new ContactOptionsModel("New contact"));
         contactOptionsModels.add(new ContactOptionsModel("New community"));
 
-
-       // contactsOptionsRecycler.setAdapter(new ContactOptionsAdapter(contactOptionsModels));
-        listView.setAdapter((ListAdapter) new ContactOptionsAdapter(contactOptionsModels));
+        contactsOptionsRecycler.setAdapter(new ContactOptionsAdapter(contactOptionsModels));
 
         checkPermission();
         return  view;
@@ -91,8 +83,7 @@ public class ContactsFragment extends Fragment {
             cursor.close();
 
             ContactsAdapter adapter = new ContactsAdapter(contactModels);
-           // contactsPersonsRecycler.setAdapter(adapter);
-            listView.setAdapter((ListAdapter) adapter);
+            contactsPersonsRecycler.setAdapter(adapter);
         }
     }
 }
